@@ -1,0 +1,52 @@
+其实自动更新的原理很简单，先把样式写好，放到一个字符串里，然后动态创建一个style标签，设置定时器setInterval，隔多少时间style标签里的样式自动更新一下，打开浏览器你会发现浏览器在不断的更新dom。
+
+ var n = 0;
+ setInterval(()=>{
+      //code是预先写好的字符串
+      this.code = this.code.substring(0,n);
+      n++;
+},1000)
+
+1.template标签里面写入dom结构。
+
+
+2.需要用到什么库，使用import..from(库名)语句，前提是你已在package.json文件里填入相应依赖，并运行npm install成功安装。
+
+
+3 .vue文件会输出一个default对象，在这里你可以使用计算属性computed，方法methods，还有添加属性数组props。
+
+
+4.要注意，在default对象中data属性不再是以对象方式出现，而是
+
+data(){
+    return {
+         //私有数据写在这儿
+         key:value;      
+     }
+}
+
+5.组件间相互联动依靠ref属性，再通过this.$refs.属性名 来做一些操作
+
+
+6.最后的style标签填入组件样式。
+
+
+7.引入写好的组件同样使用import语句，同时，在default的components对象加上组件名
+
+
+最后总结一下这里主要知识点：
+
+1.pre标签的使用
+
+2.使用created()方法来操作元素，具体还有许多方法，详见vue生命周期图
+
+3.this.$nextTick 下次dom刷新时的操控对象
+
+4.对promise对象以及async函数的使用，优化异步
+
+5.异步语句使用箭头函数捕获上下文
+
+作者：龍太
+链接：https://www.jianshu.com/p/eb894461186a
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
